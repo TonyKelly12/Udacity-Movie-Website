@@ -128,12 +128,10 @@ movie_tile_content = '''
 <div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="{trailer_youtube_id}" data-toggle="modal" data-target="#trailer">
     <img src="{poster_image_url}" width="220" height="342">
     <h2>{movie_title}</h2>
-    <p>{movie_storyline}</p>
+    <p>{movie_storyline}<p>
    
 </div>
 '''
-
-
 
 
 def create_movie_tiles_content(movies):
@@ -158,15 +156,14 @@ def create_movie_tiles_content(movies):
     return content
 
 
-
 def open_movies_page(movies):
     # Create or overwrite the output file
     output_file = open('fresh_tomatoes.html', 'w')
 
     # Replace the movie tiles placeholder generated content
     rendered_content = main_page_content.format(
-        movie_tiles=create_movie_tiles_content(movies),
-        #movie_api=create_movie_api_content(movies_api))
+        movie_tiles=create_movie_tiles_content(movies))
+
     # Output the file
     output_file.write(main_page_head + rendered_content)
     output_file.close()
