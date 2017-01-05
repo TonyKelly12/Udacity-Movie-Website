@@ -1,4 +1,5 @@
 import fresh_tomatoes
+import movies_api
 import MovieClass
 
 
@@ -41,4 +42,4 @@ wood = MovieClass.Movie("The Wood", "The Wood is a 1999 American coming of age f
                         "https://youtu.be/4_HEXcaDpMI")
 
 movie_list = [ip_man, guardians, choke, ong_bak, apocalypto, wood]
-fresh_tomatoes.open_movies_page(movie_list)
+fresh_tomatoes.open_movies_page(movie_list, movies_api.get_movie_data)
