@@ -1,4 +1,4 @@
-import fresh_tomatoes
+#import fresh_tomatoes
 import requests
 import json
 import MovieAPI
@@ -8,20 +8,22 @@ url = "https://api.themoviedb.org/3/discover/movie?api_key=c3880d07fc7fcab702589
 r = requests.get(url)
 json_obj = r.json()
 movie_list_api = []
-  
+
 def get_movie_data(json_obj):  
   for movie in json_obj["results"]:
-    movieItem = []
     api_title = movie['title']
-    movieItem.append(api_title)
+    #movieItem.append(MovieAPI.MovieAPI.api_title)
     api_storyline = movie['overview']
-    movieItem.append(api_storyline)
+    #movieItem.append(MovieAPI.MovieAPI.api_storyline)
     api_rating = movie['vote_average']
-    movieItem.append(api_rating)
-    movieItemList = MovieAPI.MovieAPI(movieItem[0], movieItem[1], movieItem[2])
-    movie_list_api.append(movieItemList)
-    #movie_list_api.append(movieItem)
-  print (movieItemList)
+    #movieItem.append(MovieAPI.MovieAPI.api_rating)
+   # movieItemList = MovieAPI.MovieAPI(movieItem[0], movieItem[1], movieItem[2])
+    #movie_list_api.append(movieItemList)
+    apimovie = MovieAPI.MovieAPI(api_title, api_storyline, api_rating)
+    
+    movie_list_api.append(apimovie)
+   
+  print (movie_list_api)
 
 get_movie_data(json_obj)
 

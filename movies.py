@@ -1,5 +1,4 @@
 import fresh_tomatoes
-import movies_api
 import MovieClass
 
 
