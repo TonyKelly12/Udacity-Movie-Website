@@ -1,8 +1,8 @@
-#import fresh_tomatoes
+import fresh_tomatoes
 import requests
 import json
 import MovieAPI
-#import movies
+import movies
 
 url = "https://api.themoviedb.org/3/discover/movie?api_key=c3880d07fc7fcab7025895770629a5bb&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1"
 r = requests.get(url)
@@ -23,7 +23,7 @@ def get_movie_data(json_obj):
     
     movie_list_api.append(apimovie)
    
-  print (movie_list_api)
+  return (movie_list_api)
 
 get_movie_data(json_obj)
 

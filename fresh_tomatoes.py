@@ -117,7 +117,9 @@ main_page_content = '''
     </div>
     <div class="container">
       {movie_tiles}
-    <!-- api_movie  -->
+     <div class ="container">
+     {api_movie}
+     </div>
     </div>
   </body>
 </html>
@@ -134,16 +136,14 @@ movie_tile_content = '''
 </div>
 '''
 
-#movie_api_content = '''
-#<div class="col-md-6 col-lg-4 movie-tile text-center">
-#    
-#    <h2>{api_title}</h2>
-#    <p>{api_storyline}</p>
-#    <p>{api_rating}</p>
-#   
-#</div>
-#'''
-
+movie_api_content = '''
+<div class="col-md-6 col-lg-4 movie-tile text-center">
+    <h2>{api_title}</h2>
+    <p>{api_storyline}</p>
+    <p>{api_rating}</p>
+   
+</div>
+'''
 
 def create_movie_tiles_content(movies):
     # The HTML content for this section of the page
@@ -187,7 +187,7 @@ def open_movies_page(movies):
     # Replace the movie tiles placeholder generated content
     rendered_content = main_page_content.format(
     movie_tiles=create_movie_tiles_content(movies))
-        #api_movie=create_movie_api_content(movies_api))
+        
 
     # Output the file
     output_file.write(main_page_head + rendered_content)
@@ -197,19 +197,19 @@ def open_movies_page(movies):
     url = os.path.abspath(output_file.name)
     webbrowser.open('file://' + url, new=2)
 
-#def open_movies_api_page(movies_api):
-#    # Create or overwrite the output file
-#    output_file = open('fresh_tomatoes.html', 'w')
-#
-#    # Replace the movie tiles placeholder generated content
-#    rendered_content = main_page_content.format(
-#    api_movie=create_movie_api_content(movies_api))
-#
-#    # Output the file
-#    output_file.write(main_page_head + rendered_content)
-#    output_file.close()
-#
-#    # open the output file in the browser (in a new tab, if possible)
-#    url = os.path.abspath(output_file.name)
-#    webbrowser.open('file://' + url, new=2)
+def open_movies_api_page(movies_api):
+    # Create or overwrite the output file
+    output_file = open('fresh_tomatoes.html', 'w')
+
+    # Replace the movie tiles placeholder generated content
+    rendered_content = main_page_content.format(
+    api_movie=create_movie_api_content(movies_api))
+
+    # Output the file
+    output_file.write(main_page_head + rendered_content)
+    output_file.close()
+
+    # open the output file in the browser (in a new tab, if possible)
+    url = os.path.abspath(output_file.name)
+    webbrowser.open('file://' + url, new=2)
 
