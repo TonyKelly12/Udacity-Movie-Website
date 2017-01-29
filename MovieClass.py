@@ -1,7 +1,7 @@
 import webbrowser
 
 class Movie():
-  """ This class sets up the movie data in the format needed to post to html""" 
+    """ This class sets up the movie data in the format needed to post to html""" 
     
     def __init__(self, movie_title, movie_storyline, poster_image, trailer_youtube):
         """ this init takes in the movie title, the description or storyline, the movie poster 
